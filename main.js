@@ -13,16 +13,16 @@ jsContainer.innerHTML = `
 setInterval(() => {
   document.getElementById('counter').innerHTML = counter;
   counter++
-// Creating an Element with the React API
+  // Creating an Element with the React API
   ReactDOM.render(
-    return {
-      <div>
-        <div>Hello JS</div>
-        <div>${new Date()}</div>
-        <p id='counter'>{counter}</p >
-        <input />
-      </div>
-    },
+    /*<div>
+      <div>Hello JS</div>
+      <div>${new Date()}</div>
+      <p id='counter'>{counter}</p >
+      <input />
+    </div>*/
+    jsContainer
+    ,
     reactContainer
   )
-}, 1000)
+}, 1000);
