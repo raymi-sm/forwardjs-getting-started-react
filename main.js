@@ -15,12 +15,14 @@ setInterval(() => {
   counter++
 // Creating an Element with the React API
   ReactDOM.render(
-    React.createElement('div', {},
-      React.createElement('div', {}, 'Hello React'),
-      React.createElement('div', {}, new Date().toString()),
-      React.createElement('input', {}),
-      React.createElement('div', {id: 'counter'}, counter)
-    ),
+    return {
+      <div>
+        <div>Hello JS</div>
+        <div>${new Date()}</div>
+        <p id='counter'>{counter}</p >
+        <input />
+      </div>
+    },
     reactContainer
   )
 }, 1000)
