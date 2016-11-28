@@ -45,7 +45,7 @@ const Counter = ({ id, x }) => {
 
 // Creating a React component: Second Way
 
-const Counter = React.createClass({
+/*const Counter = React.createClass({
   render: function(){
     let {id, x} = this.props;
     return (
@@ -54,18 +54,50 @@ const Counter = React.createClass({
       </div>
     );
   }
-})
+})*/
 
-let x = 0;
-setInterval(() => {
-  x++
-  ReactDOM.render(
-    <div>
-      <div>Hello React</div>
-      <input />
-      <Counter id="a6" x={x} />
-    </div>
-    ,
-    reactContainer
+// Creating a React component: Third Way
+
+/*class Counter extends React.Component {
+  idSpan(){
+    return(<span>{this.props.id}</span>);
+  }
+  render(){
+    return(
+      <div>
+        {this.idSpan()}: <span>{this.props.x}</span>
+      </div>
+    )
+  }
+}*/
+
+// State
+
+// LifeCycle Methods
+
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {currentValue: 1};
+    setInterval(() => {
+      this.setState({currentValue: this.state.currentValue + 1})
+    }, 1000);
+  }
+  render(){
+    //this.state
+    return(
+      <div>
+        <span>{this.state.currentValue}</span>
+      </div>
+    )
+  }
+}
+
+
+ReactDOM.render(
+  <div>
+    <Counter />
+  </div>
+  ,
+  reactContainer
   )
-}, 1000);
