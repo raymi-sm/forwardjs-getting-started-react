@@ -1,27 +1,25 @@
-const jsContainer = document.getElementById('js');
 const reactContainer = document.getElementById('react');
+const Counter = (props) => {
+  return (
+    <p>{props.x}</p>
+  );
+}
 
-let counter = 0;
-jsContainer.innerHTML = `
-  <div>
-    <div>Hello JS</div>
-    <div>${new Date()}</div>
-    <p id='counter'>${counter}</p >
-    <input />
-    </div>
-`;
+const Counter2 = (props) => {
+  return(
+    React.createElement('p', null, props.x)
+  );
+}
+let x = 0;
 setInterval(() => {
-  document.getElementById('counter').innerHTML = counter;
-  counter++
-  // Creating an Element with the React API
+  x++
   ReactDOM.render(
-    /*<div>
-      <div>Hello JS</div>
-      <div>${new Date()}</div>
-      <p id='counter'>{counter}</p >
+    <div>
+      <div>Hello React</div>
       <input />
-    </div>*/
-    jsContainer
+      <Counter x={x} />
+      <Counter2 x={x} />
+    </div>
     ,
     reactContainer
   )
